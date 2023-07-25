@@ -3,6 +3,7 @@ import { World } from '../world';
 import { Position } from '../position';
 import { Robot } from '../robot';
 import { Scent } from '../scent';
+import { Orientation } from '../orientation';
 
 describe('World :: Constructor', () => {
   // World Constructor Tests
@@ -37,10 +38,10 @@ describe('World :: Constructor', () => {
 
 describe('World :: addRobot', () => {
   it('addRobot should store one robot', () => {
-    // Construct robot
-    const robotOne = new Robot();
     // Construct world
     const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
+    // Construct robot
+    const robotOne = new Robot(world, new Position({ x: 1, y: 2 }), Orientation.NORTH, false);
     // Should have zero robots to start
     expect(world.getRobots().length).toEqual(0);
     // Add a robot
@@ -52,12 +53,12 @@ describe('World :: addRobot', () => {
   });
 
   it('addRobot should store three robots', () => {
-    // Construct three robots
-    const robotOne = new Robot();
-    const robotTwo = new Robot();
-    const robotThree = new Robot();
     // Construct world
     const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
+    // Construct three robots
+    const robotOne = new Robot(world, new Position({ x: 1, y: 2 }), Orientation.NORTH, false);
+    const robotTwo = new Robot(world, new Position({ x: 1, y: 2 }), Orientation.NORTH, false);
+    const robotThree = new Robot(world, new Position({ x: 1, y: 2 }), Orientation.NORTH, false);
     // Should have zero robots to start
     expect(world.getRobots().length).toEqual(0);
     // Add three robots
