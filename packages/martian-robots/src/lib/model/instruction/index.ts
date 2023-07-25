@@ -28,5 +28,15 @@ export abstract class Instruction {
     }
   })();
 
+  static FORWARD = new (class extends Instruction {
+    override execute(position: Position, orientation: Orientation) {
+      const newPosition = new Position({
+        x: position.x + orientation.x,
+        y: position.y + orientation.y
+      });
+      return { position: newPosition, orientation };
+    }
+  })();
+
   abstract execute(position: Position, orientation: Orientation): { position: Position, orientation: Orientation };
 }

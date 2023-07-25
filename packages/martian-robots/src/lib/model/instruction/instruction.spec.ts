@@ -98,7 +98,7 @@ describe('Instruction :: FORWARD (Execute)', () => {
     const { position, orientation } = instruction.execute(initialPosition, initialOrientation);
 
     expect(position.x).toEqual(1);
-    expect(position.x).toEqual(3);
+    expect(position.y).toEqual(3);
     expect(orientation).toEqual(initialOrientation);
   });
   it('FORWARD instruction should advance robot in facing orientation by one (EAST)', () => {
@@ -109,7 +109,7 @@ describe('Instruction :: FORWARD (Execute)', () => {
     const { position, orientation } = instruction.execute(initialPosition, initialOrientation);
 
     expect(position.x).toEqual(2);
-    expect(position.x).toEqual(2);
+    expect(position.y).toEqual(2);
     expect(orientation).toEqual(initialOrientation);
   });
   it('FORWARD instruction should advance robot in facing orientation by one (SOUTH)', () => {
@@ -120,7 +120,7 @@ describe('Instruction :: FORWARD (Execute)', () => {
     const { position, orientation } = instruction.execute(initialPosition, initialOrientation);
 
     expect(position.x).toEqual(1);
-    expect(position.x).toEqual(1);
+    expect(position.y).toEqual(1);
     expect(orientation).toEqual(initialOrientation);
   });
   it('FORWARD instruction should advance robot in facing orientation by one (WEST)', () => {
@@ -131,7 +131,7 @@ describe('Instruction :: FORWARD (Execute)', () => {
     const { position, orientation } = instruction.execute(initialPosition, initialOrientation);
 
     expect(position.x).toEqual(0);
-    expect(position.x).toEqual(2);
+    expect(position.y).toEqual(2);
     expect(orientation).toEqual(initialOrientation);
   });
 });
