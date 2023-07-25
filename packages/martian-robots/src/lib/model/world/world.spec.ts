@@ -105,12 +105,15 @@ describe('World :: isInWorld', () => {
     const world = new World({ width: 5, height: 3 });
     // Test negative coordinates
     expect(world.isInWorld({ x: -1, y: 0 })).toEqual(false);
+    expect(world.isInWorld({ x: 0, y: -1 })).toEqual(false);
+    expect(world.isInWorld({ x: -1, y: -1 })).toEqual(false);
   });
   it('isInWorld should return false for coordinates greater than world', () => {
     // Construct World
     const world = new World({ width: 5, height: 3 });
     // Test coordinates greater than world
     expect(world.isInWorld({ x: 6, y: 0 })).toEqual(false);
+    expect(world.isInWorld({ x: 0, y: 4 })).toEqual(false);
   });
   it('isInWorld should return true for coordinates within world', () => {
     // Construct World
