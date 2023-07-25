@@ -51,12 +51,11 @@ export class World {
    * Test if given coordinates are in-world
    * or if they are invalid.
    * 
-   * @param {number} x - The x coordinate to test
-   * @param {number} y - The y coordinate to test
+   * @param {Position} xy - The x,y coordinate position to test
    * 
    * @returns {boolean} isInWorld - Whether the coordinates are in the world
    */
-  isInWorld({ x, y }: { x: number, y: number }) {
+  isInWorld({ x, y }: Position) {
     return x >= 0 && x <= this.maxPosition.x && y >= 0 && y <= this.maxPosition.y;
   }
   
