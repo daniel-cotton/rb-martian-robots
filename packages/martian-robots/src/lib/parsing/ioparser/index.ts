@@ -35,6 +35,12 @@ export class IOParser {
     return { world, robotsWithInstructions };
   }
 
+  static serialiseOutput(world: World): string {
+    return [
+      this._serialiseRobots(world.getRobots())
+    ].join("\n");
+  }
+
   private static _parseWorld(input: string): World {
     const firstLine = input.split('\n')[0];
     const digits = firstLine.split(' ').map((digit) => parseInt(digit, 10));
@@ -87,5 +93,17 @@ export class IOParser {
       robot: new Robot(world, robotPosition, robotOrientation, false),
       instructions,
     };
+  }
+
+  private static _serialiseRobots(robots: Robot[]): string {
+    return robots.map(robot => this._serialiseRobot(robot)).join("\n");
+  }
+
+  private static _serialiseRobot(robot: Robot): string {
+    const orientationKey = Object.entries(ORIENTATION_MAP).find(([key, value]) => value === robot.getOrientation())?.[0];
+    return [robot.getPosition().x, robot.getPosition().y, orientationKey || "", robot.getIsLost() ? "LOST" : ""]
+      .map(value => value.toString())
+      .filter(value => !!value)
+      .join(" ");
   }
 }
