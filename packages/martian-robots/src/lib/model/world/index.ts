@@ -49,6 +49,19 @@ export class World {
     this.width = width;
     this.height = height;
   }
+
+  /**
+   * Test if given coordinates are in-world
+   * or if they are invalid.
+   * 
+   * @param {number} x - The x coordinate to test
+   * @param {number} y - The y coordinate to test
+   * 
+   * @returns {boolean} isInWorld - Whether the coordinates are in the world
+   */
+  isInWorld({ x, y }: { x: number, y: number }) {
+    return x >= 0 && x <= this.width && y >= 0 && y <= this.height;
+  }
   
   /**
    * Adds robot to world
