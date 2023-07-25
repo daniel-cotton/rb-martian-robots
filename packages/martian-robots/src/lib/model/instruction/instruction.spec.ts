@@ -89,8 +89,6 @@ describe('Instruction :: RIGHT (Execute)', () => {
   });
 });
 
-
-
 describe('Instruction :: FORWARD (Execute)', () => {
   it('FORWARD instruction should advance robot in facing orientation by one (NORTH)', () => {
     const instruction = Instruction.FORWARD;

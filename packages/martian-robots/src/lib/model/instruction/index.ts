@@ -19,5 +19,14 @@ export abstract class Instruction {
     }
   })();
 
+  static RIGHT = new (class extends Instruction {
+    override execute(position: Position, orientation: Orientation) {
+      const orientationIndex = ORIENTATION_ORDERED.indexOf(orientation);
+      const newOrientationIndex = (orientationIndex + 1) % ORIENTATION_ORDERED.length;
+      const newOrientation = ORIENTATION_ORDERED[newOrientationIndex];
+      return { position, orientation: newOrientation };
+    }
+  })();
+
   abstract execute(position: Position, orientation: Orientation): { position: Position, orientation: Orientation };
 }
