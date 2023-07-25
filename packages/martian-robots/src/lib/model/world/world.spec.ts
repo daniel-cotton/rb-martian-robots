@@ -23,43 +23,43 @@ describe('World :: Constructor', () => {
   });
 });
 
-// describe('World :: addRobot', () => {
-//   it('addRobot should store one robot', () => {
-//     // Construct robot
-//     const robotOne = new Robot();
-//     // Construct world
-//     const world = new World({ width: 5, height: 3 });
-//     // Should have zero robots to start
-//     expect(world.getRobots().length()).toEqual(0);
-//     // Add a robot
-//     world.addRobot(robotOne);
-//     // Should have one robot
-//     expect(world.getRobots().length()).toEqual(1);
-//     // Robot should equal robotOne
-//     expect(world.getRobots()[0]).toEqual(robotOne);
-//   });
+describe('World :: addRobot', () => {
+  it('addRobot should store one robot', () => {
+    // Construct robot
+    const robotOne = new Robot();
+    // Construct world
+    const world = new World({ width: 5, height: 3 });
+    // Should have zero robots to start
+    expect(world.getRobots().length).toEqual(0);
+    // Add a robot
+    world.addRobot(robotOne);
+    // Should have one robot
+    expect(world.getRobots().length).toEqual(1);
+    // Robot should equal robotOne
+    expect(world.getRobots()[0]).toEqual(robotOne);
+  });
 
-//   it('addRobot should store three robots', () => {
-//     // Construct three robots
-//     const robotOne = new Robot();
-//     const robotTwo = new Robot();
-//     const robotThree = new Robot();
-//     // Construct world
-//     const world = new World({ width: 5, height: 3 });
-//     // Should have zero robots to start
-//     expect(world.getRobots().length()).toEqual(0);
-//     // Add three robots
-//     world.addRobot(robotOne);
-//     world.addRobot(robotTwo);
-//     world.addRobot(robotThree);
-//     // Should have three robots
-//     expect(world.getRobots().length()).toEqual(3);
-//     // Confirm robots are stored in order
-//     expect(world.getRobots()[0]).toEqual(robotOne);
-//     expect(world.getRobots()[1]).toEqual(robotTwo);
-//     expect(world.getRobots()[2]).toEqual(robotThree);
-//   });
-// });
+  it('addRobot should store three robots', () => {
+    // Construct three robots
+    const robotOne = new Robot();
+    const robotTwo = new Robot();
+    const robotThree = new Robot();
+    // Construct world
+    const world = new World({ width: 5, height: 3 });
+    // Should have zero robots to start
+    expect(world.getRobots().length).toEqual(0);
+    // Add three robots
+    world.addRobot(robotOne);
+    world.addRobot(robotTwo);
+    world.addRobot(robotThree);
+    // Should have three robots
+    expect(world.getRobots().length).toEqual(3);
+    // Confirm robots are stored in order
+    expect(world.getRobots()[0]).toEqual(robotOne);
+    expect(world.getRobots()[1]).toEqual(robotTwo);
+    expect(world.getRobots()[2]).toEqual(robotThree);
+  });
+});
 
 // describe('World :: addScent', () => {
 //   it('addScent should store one scent', () => {
@@ -68,11 +68,11 @@ describe('World :: Constructor', () => {
 //     // Construct World
 //     const world = new World({ width: 5, height: 3 });
 //     // Should have zero scents to start
-//     expect(world.getScents().length()).toEqual(0);
+//     expect(world.getScents().length).toEqual(0);
 //     // Add a robot
 //     world.addScent(scentOne);
 //     // Should have one robot
-//     expect(world.getScents().length()).toEqual(1);
+//     expect(world.getScents().length).toEqual(1);
 //     // Robot should equal robotOne
 //     expect(world.getScents()[0]).toEqual(scentOne);
 //   });
@@ -85,13 +85,13 @@ describe('World :: Constructor', () => {
 //     // Construct world
 //     const world = new World({ width: 5, height: 3 });
 //     // Should have zero robots to start
-//     expect(world.getScents().length()).toEqual(0);
+//     expect(world.getScents().length).toEqual(0);
 //     // Add three robots
 //     world.addScent(scentOne);
 //     world.addScent(scentTwo);
 //     world.addScent(scentThree);
 //     // Should have three scents
-//     expect(world.getScents().length()).toEqual(3);
+//     expect(world.getScents().length).toEqual(3);
 //     // Confirm scents are stored in order
 //     expect(world.getScents()[0]).toEqual(scentOne);
 //     expect(world.getScents()[1]).toEqual(scentTwo);

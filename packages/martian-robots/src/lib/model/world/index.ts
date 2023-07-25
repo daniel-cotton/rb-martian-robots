@@ -1,3 +1,4 @@
+import { Robot } from '../robot';
 
 /**
  * An implementation of the world in which the robots move.
@@ -24,6 +25,8 @@ export class World {
   width = 0;
   height = 0;
 
+  robots: Robot[] = [];
+
   /**
    * Creates an instance of World
    * which models the Mars Planet
@@ -43,5 +46,23 @@ export class World {
     // Set world dimensions
     this.width = width;
     this.height = height;
+  }
+  
+  /**
+   * Adds robot to world
+   * 
+   * @param {Robot} robot - The robot to add to the world
+   */
+  addRobot(robot: Robot) {
+    this.robots.push(robot);
+  }
+
+  /**
+   * Returns the robots in the world
+   * 
+   * @returns {Robot[]} - The robots in the world
+   */
+  getRobots() {
+    return this.robots;
   }
 }
