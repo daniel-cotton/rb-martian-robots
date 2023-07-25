@@ -3,17 +3,6 @@ import { Instruction } from '../instruction';
 import { Orientation } from '../orientation';
 import { Position } from '../position';
 
-describe('Instruction :: Execute', () => {
-  it('base Instruction class should throw on execute due to lack of implementation', () => {
-    const instruction = new Instruction();
-    const position = new Position({ x: 1, y: 2 });
-
-    expect(() => {
-      instruction.execute(position, Orientation.NORTH);
-    }).toThrow(Error);
-  });
-});
-
 describe('Instruction :: LEFT (Execute)', () => {
   it('LEFT instruction should rotate robot left (NORTH -> WEST)', () => {
     const instruction = Instruction.LEFT;

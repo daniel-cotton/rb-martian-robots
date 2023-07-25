@@ -13,7 +13,7 @@ export abstract class Instruction {
   static LEFT = new (class extends Instruction {
     override execute(position: Position, orientation: Orientation) {
       const orientationIndex = ORIENTATION_ORDERED.indexOf(orientation);
-      const newOrientationIndex = (orientationIndex - 1) % 4;
+      const newOrientationIndex = orientationIndex > 0 ? orientationIndex - 1 : (ORIENTATION_ORDERED.length - 1);
       const newOrientation = ORIENTATION_ORDERED[newOrientationIndex];
       return { position, orientation: newOrientation };
     }
