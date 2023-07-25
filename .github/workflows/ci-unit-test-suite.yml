@@ -1,0 +1,23 @@
+name: Run Unit Test Suite on Push or PR
+on:
+  push:
+  pull_request:
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node/npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies with NPM CI
+        run: npm ci
+
+      - name: Lint all NX Projects
+        run: npx nx run-many -t lint
+
+      - name: Run Test Suite for all NX projects (Jest)
+        run: npx nx run-many -t test
