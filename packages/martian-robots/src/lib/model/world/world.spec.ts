@@ -61,43 +61,43 @@ describe('World :: addRobot', () => {
   });
 });
 
-// describe('World :: addScent', () => {
-//   it('addScent should store one scent', () => {
-//     // Construct Scent
-//     const scentOne = new Scent();
-//     // Construct World
-//     const world = new World({ width: 5, height: 3 });
-//     // Should have zero scents to start
-//     expect(world.getScents().length).toEqual(0);
-//     // Add a robot
-//     world.addScent(scentOne);
-//     // Should have one robot
-//     expect(world.getScents().length).toEqual(1);
-//     // Robot should equal robotOne
-//     expect(world.getScents()[0]).toEqual(scentOne);
-//   });
+describe('World :: addScent', () => {
+  it('addScent should store one scent', () => {
+    // Construct Scent
+    const scentOne = new Scent();
+    // Construct World
+    const world = new World({ width: 5, height: 3 });
+    // Should have zero scents to start
+    expect(world.getScents().length).toEqual(0);
+    // Add a robot
+    world.addScent(scentOne);
+    // Should have one robot
+    expect(world.getScents().length).toEqual(1);
+    // Robot should equal robotOne
+    expect(world.getScents()[0]).toEqual(scentOne);
+  });
 
-//   it('addScent should store three scents', () => {
-//     // Construct three robots
-//     const scentOne = new Scent();
-//     const scentTwo = new Scent();
-//     const scentThree = new Scent();
-//     // Construct world
-//     const world = new World({ width: 5, height: 3 });
-//     // Should have zero robots to start
-//     expect(world.getScents().length).toEqual(0);
-//     // Add three robots
-//     world.addScent(scentOne);
-//     world.addScent(scentTwo);
-//     world.addScent(scentThree);
-//     // Should have three scents
-//     expect(world.getScents().length).toEqual(3);
-//     // Confirm scents are stored in order
-//     expect(world.getScents()[0]).toEqual(scentOne);
-//     expect(world.getScents()[1]).toEqual(scentTwo);
-//     expect(world.getScents()[2]).toEqual(scentThree);
-//   });
-// });
+  it('addScent should store three scents', () => {
+    // Construct three robots
+    const scentOne = new Scent();
+    const scentTwo = new Scent();
+    const scentThree = new Scent();
+    // Construct world
+    const world = new World({ width: 5, height: 3 });
+    // Should have zero robots to start
+    expect(world.getScents().length).toEqual(0);
+    // Add three robots
+    world.addScent(scentOne);
+    world.addScent(scentTwo);
+    world.addScent(scentThree);
+    // Should have three scents
+    expect(world.getScents().length).toEqual(3);
+    // Confirm scents are stored in order
+    expect(world.getScents()[0]).toEqual(scentOne);
+    expect(world.getScents()[1]).toEqual(scentTwo);
+    expect(world.getScents()[2]).toEqual(scentThree);
+  });
+});
 
 // describe('World :: isInWorld', () => {
 //   it('isInWorld should return false for negative coordinates', () => {

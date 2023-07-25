@@ -1,4 +1,5 @@
 import { Robot } from '../robot';
+import { Scent } from '../scent';
 
 /**
  * An implementation of the world in which the robots move.
@@ -26,6 +27,7 @@ export class World {
   height = 0;
 
   robots: Robot[] = [];
+  scents: Scent[] = [];
 
   /**
    * Creates an instance of World
@@ -64,5 +66,24 @@ export class World {
    */
   getRobots() {
     return this.robots;
+  }
+
+  /**
+   * Adds scent to world
+   * 
+   * @param {Scent} scent - The scent to add to the world
+   * 
+   */
+  addScent(scent: Scent) {
+    this.scents.push(scent);
+  }
+
+  /**
+   * Returns the scents in the world
+   * 
+   * @returns {Scent[]} - The scents in the world
+   */
+  getScents() {
+    return this.scents;
   }
 }
