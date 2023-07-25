@@ -5,7 +5,7 @@ import { Robot } from '../../model/robot';
 import { Position } from '../../model/position';
 import { Orientation } from '../../model/orientation';
 
-type RobotInstructionPair = {
+export type RobotInstructionPair = {
   robot: Robot;
   instructions: Instruction[];
 };
