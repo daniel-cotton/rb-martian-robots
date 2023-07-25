@@ -41,7 +41,7 @@ describe('Orientation :: Existing Orientations', () => {
   it('NORTH orientation should be (0, 1)', () => {
     const north = Orientation.NORTH;
     expect(north.x).toEqual(0);
-    expect(north.y).toEqual(0);
+    expect(north.y).toEqual(1);
   });
   it('EAST orientation should be (1, 0)', () => {
     const east = Orientation.EAST;
