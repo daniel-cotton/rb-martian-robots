@@ -1,5 +1,6 @@
 import { World } from '../world';
 
+import { Position } from '../position';
 import { Robot } from '../robot';
 import { Scent } from '../scent';
 
@@ -7,29 +8,29 @@ describe('World :: Constructor', () => {
   // World Constructor Tests
   it('world should throw if width/height less than (0, 1) or (1, 0)', () => {
     expect(() => {
-      new World({ width: 0, height: 0 });
+      new World({ maxPosition: new Position({ x: 0, y: 0 }) });
     }).toThrow(Error);
   });
   it('world should throw if width/height greater than (50, 50), (50, 0) or (0, 50)', () => {
     expect(() => {
-      new World({ width: 51, height: 51 });
+      new World({ maxPosition: new Position({ x: 51, y: 51 }) });
     }).toThrow(Error);
     expect(() => {
-      new World({ width: 51, height: 0 });
+      new World({ maxPosition: new Position({ x: 51, y: 0 }) });
     }).toThrow(Error);
     expect(() => {
-      new World({ width: 0, height: 51 });
+      new World({ maxPosition: new Position({ x: 0, y: 51 }) });
     }).toThrow(Error);
   });
   it('world should throw if width or height are negative', () => {
     expect(() => {
-      new World({ width: -1, height: 0 });
+      new World({ maxPosition: new Position({ x: -1, y: 0 }) });
     }).toThrow(Error);
     expect(() => {
-      new World({ width: 0, height: -1 });
+      new World({ maxPosition: new Position({ x: 0, y: -1 }) });
     }).toThrow(Error);
     expect(() => {
-      new World({ width: -1, height: -1 });
+      new World({ maxPosition: new Position({ x: -1, y: -1 }) });
     }).toThrow(Error);
   });
 });
@@ -39,7 +40,7 @@ describe('World :: addRobot', () => {
     // Construct robot
     const robotOne = new Robot();
     // Construct world
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Should have zero robots to start
     expect(world.getRobots().length).toEqual(0);
     // Add a robot
@@ -56,7 +57,7 @@ describe('World :: addRobot', () => {
     const robotTwo = new Robot();
     const robotThree = new Robot();
     // Construct world
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Should have zero robots to start
     expect(world.getRobots().length).toEqual(0);
     // Add three robots
@@ -77,7 +78,7 @@ describe('World :: addScent', () => {
     // Construct Scent
     const scentOne = new Scent();
     // Construct World
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Should have zero scents to start
     expect(world.getScents().length).toEqual(0);
     // Add a robot
@@ -94,7 +95,7 @@ describe('World :: addScent', () => {
     const scentTwo = new Scent();
     const scentThree = new Scent();
     // Construct world
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Should have zero robots to start
     expect(world.getScents().length).toEqual(0);
     // Add three robots
@@ -113,7 +114,7 @@ describe('World :: addScent', () => {
 describe('World :: isInWorld', () => {
   it('isInWorld should return false for negative coordinates', () => {
     // Construct World
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Test negative coordinates
     expect(world.isInWorld({ x: -1, y: 0 })).toEqual(false);
     expect(world.isInWorld({ x: 0, y: -1 })).toEqual(false);
@@ -121,20 +122,20 @@ describe('World :: isInWorld', () => {
   });
   it('isInWorld should return false for coordinates greater than world', () => {
     // Construct World
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Test coordinates greater than world
     expect(world.isInWorld({ x: 6, y: 0 })).toEqual(false);
     expect(world.isInWorld({ x: 0, y: 4 })).toEqual(false);
   });
   it('isInWorld should return true for coordinates within world', () => {
     // Construct World
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Test coordinates within world
     expect(world.isInWorld({ x: 4, y: 2 })).toEqual(true);
   });
   it('isInWorld should return true for coordinates on edges of world', () => {
     // Construct World
-    const world = new World({ width: 5, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 5, y: 3 }) });
     // Test coordinates on edge of world
     expect(world.isInWorld({ x: 5, y: 0 })).toEqual(true);
     expect(world.isInWorld({ x: 0, y: 3 })).toEqual(true);
@@ -160,7 +161,7 @@ describe('World :: isInWorld', () => {
     [3, 3]
   ])('isInWorld should return true for ALL coordinates within world', (x, y) => {
     // Construct World
-    const world = new World({ width: 3, height: 3 });
+    const world = new World({ maxPosition: new Position({ x: 3, y: 3 }) });
     // Test coordinates within world
     expect(world.isInWorld({ x, y })).toEqual(true);
   });

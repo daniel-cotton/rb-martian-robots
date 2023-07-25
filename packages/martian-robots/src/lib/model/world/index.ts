@@ -1,14 +1,14 @@
 import { Robot } from '../robot';
 import { Scent } from '../scent';
+import { Position } from '../position';
 
 /**
  * An implementation of the world in which the robots move.
  * 
  * @class World
- * @property {number} width - The width of the world
- * @property {number} height - The height of the world
+ * @property {Position} maxPosition - The maximum position of the world
  * 
- * The above are the upper-right coordinates of the rectangular 
+ * The maxPosition is the upper-right coordinates of the rectangular 
  * world, the lower-left coordinates are assumed to be 0, 0.
  * 
  * Illustration:
@@ -23,8 +23,7 @@ import { Scent } from '../scent';
  * 
  */
 export class World {
-  width = 0;
-  height = 0;
+  maxPosition: Position = new Position({ x: 0, y: 0 });
 
   robots: Robot[] = [];
   scents: Scent[] = [];
@@ -33,22 +32,19 @@ export class World {
    * Creates an instance of World
    * which models the Mars Planet
    */
-  constructor({ width, height }: { width: number, height: number }) {
-    this._setWorldDimensions({ width, height });
+  constructor({ maxPosition }: { maxPosition: Position }) {
+    this._setWorldDimensions({ maxPosition });
   }
 
   /**
    * Initialises the world dimensions to the given
    * width and height.
    */
-  _setWorldDimensions({ width, height }: { width: number, height: number }) {
+  _setWorldDimensions({ maxPosition }: { maxPosition: Position }) {
     // Validate world dimensions
-    if (width > 50 || height > 50) throw new Error('Max Allowed Coordinates are (50, 50)');
-    if (width < 0 || height < 0) throw new Error('World dimensions must be positive');
-    if (width === 0 && height === 0) throw new Error('World dimensions must be greater than (0, 0)');
-    // Set world dimensions
-    this.width = width;
-    this.height = height;
+    if (maxPosition.x === 0 && maxPosition.y === 0) throw new Error('World dimensions must be greater than (0, 0)');
+    // Set world max position
+    this.maxPosition = maxPosition;
   }
 
   /**
@@ -61,7 +57,7 @@ export class World {
    * @returns {boolean} isInWorld - Whether the coordinates are in the world
    */
   isInWorld({ x, y }: { x: number, y: number }) {
-    return x >= 0 && x <= this.width && y >= 0 && y <= this.height;
+    return x >= 0 && x <= this.maxPosition.x && y >= 0 && y <= this.maxPosition.y;
   }
   
   /**
