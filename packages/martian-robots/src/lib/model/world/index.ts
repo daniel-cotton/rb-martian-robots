@@ -43,6 +43,7 @@ export class World {
    */
   _setWorldDimensions({ width, height }: { width: number, height: number }) {
     // Validate world dimensions
+    if (width > 50 || height > 50) throw new Error('Max Allowed Coordinates are (50, 50)');
     if (width < 0 || height < 0) throw new Error('World dimensions must be positive');
     if (width === 0 && height === 0) throw new Error('World dimensions must be greater than (0, 0)');
     // Set world dimensions

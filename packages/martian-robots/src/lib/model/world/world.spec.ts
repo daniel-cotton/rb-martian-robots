@@ -10,6 +10,17 @@ describe('World :: Constructor', () => {
       new World({ width: 0, height: 0 });
     }).toThrow(Error);
   });
+  it('world should throw if width/height greater than (50, 50), (50, 0) or (0, 50)', () => {
+    expect(() => {
+      new World({ width: 51, height: 51 });
+    }).toThrow(Error);
+    expect(() => {
+      new World({ width: 51, height: 0 });
+    }).toThrow(Error);
+    expect(() => {
+      new World({ width: 0, height: 51 });
+    }).toThrow(Error);
+  });
   it('world should throw if width or height are negative', () => {
     expect(() => {
       new World({ width: -1, height: 0 });
