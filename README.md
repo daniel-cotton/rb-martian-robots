@@ -53,7 +53,7 @@ should be printed after the position and orientation.
 
 **Sample Input**
 
-```
+```sh
 5 3
 1 1 E
 RFRFRFRF
@@ -67,7 +67,7 @@ LLFFFLFLFL
 
 **Sample Output**
 
-```
+```sh
 1 1 E
 3 3 N LOST
 2 3 S
@@ -82,6 +82,7 @@ This project implements a solution to the above problem as a JavaScript (TypeScr
 - packages/
    - martian-robots/ (TypeScript library)
    - martian-robots-cli/ (TypeScript library)
+   - martian-robots-gui/ (React/Typescript Web UI)
 
 ### QuickStart
 
@@ -117,6 +118,18 @@ npm run cli
 ```
 
 Launches interactive CLI for you to provide a valid input as per the spec above.
+
+```bash
+##### Start GUI
+
+```bash
+npm run gui
+```
+
+Starts web server on port 4200
+
+http://localhost:4200
+```
 
 ### Packages
 
