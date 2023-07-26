@@ -1,0 +1,96 @@
+{
+  "name": "martian-robots-gui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/martian-robots-gui/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/martian-robots-gui",
+        "index": "packages/martian-robots-gui/src/index.html",
+        "baseHref": "/",
+        "main": "packages/martian-robots-gui/src/main.tsx",
+        "tsConfig": "packages/martian-robots-gui/tsconfig.app.json",
+        "assets": [
+          "packages/martian-robots-gui/src/favicon.ico",
+          "packages/martian-robots-gui/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "packages/martian-robots-gui/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/martian-robots-gui/src/environments/environment.ts",
+              "with": "packages/martian-robots-gui/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "martian-robots-gui:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "martian-robots-gui:build:development"
+        },
+        "production": {
+          "buildTarget": "martian-robots-gui:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/martian-robots-gui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "martian-robots-gui:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/martian-robots-gui/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

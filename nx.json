@@ -25,6 +25,9 @@
     },
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    },
+    "e2e": {
+      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
@@ -42,5 +45,22 @@
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"
+  },
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint",
+        "bundler": "webpack",
+        "babel": true
+      },
+      "component": {
+        "style": "styled-components"
+      },
+      "library": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    }
   }
 }
