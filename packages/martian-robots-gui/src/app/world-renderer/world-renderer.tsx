@@ -11,7 +11,7 @@ export interface WorldRendererProps {
 }
 
 const WorldSVG = styled.svg`
-  // Your style here
+  flex: 1;
 `;
 
 export function WorldRenderer(props: WorldRendererProps) {
@@ -20,7 +20,7 @@ export function WorldRenderer(props: WorldRendererProps) {
   const xCoordSize = maxPosition.x + 1;
   const yCoordSize = maxPosition.y + 1;
 
-  return (<WorldSVG width="100%" height="700px" viewBox={`0 0 ${xCoordSize * 10 + 2} ${yCoordSize * 10 + 2}`}>
+  return (<WorldSVG width="100%" viewBox={`0 0 ${xCoordSize * 10 + 2} ${yCoordSize * 10 + 2}`}>
     <rect x="1" y="1" width={xCoordSize * 10} height={yCoordSize * 10} stroke="white" fill="transparent" />
     {Array.from({ length: xCoordSize }, (_, x) => x).map((x) =>
       Array.from({ length: yCoordSize }, (_, y) => y).map((y) => (
@@ -35,7 +35,7 @@ export function WorldRenderer(props: WorldRendererProps) {
         />
       ))
     )}
-    
+
     {props.world.getScents()
       .map((position, index) => <ScentRenderer key={index} position={position} maxPosition={maxPosition} />)}
 
