@@ -63,6 +63,7 @@ FRRFLLFFRRFLL
 LLFFFLFLFL
 
 **Sample Output**
+
 1 1 E
 3 3 N LOST
 2 3 S
@@ -74,8 +75,43 @@ This project implements a solution to the above problem as a JavaScript (TypeScr
 **Project Contents**
 
 - packages/
-  - martian-robots/ (TypeScript library)
-    
+   - martian-robots/ (TypeScript library)
+   - martian-robots-cli/ (TypeScript library)
+
+### QuickStart
+
+The solution is surfaced as a CLI for easy interaction. To get started...
+
+##### Installation / Dependencies
+
+As this is an NX monorepo, all dependencies are managed at the root.
+
+1. Install Node.JS v18 (LTS)
+2. Install dependencies via npm `npm install`
+
+##### Build
+
+```bash
+npm run build
+```
+
+Will compile all projects within monorepo.
+
+##### Test
+
+```bash
+npm run test
+```
+
+Will test all projects within monorepo.
+
+##### Start CLI
+
+```bash
+npm run cli
+```
+
+Launches interactive CLI for you to provide a valid input as per the spec above.
 
 ### Packages
 
@@ -91,7 +127,8 @@ As this is an NX monorepo, all dependencies are managed at the root.
 2. Install dependencies via npm `npm install`
 
 ##### Running NX/Project Commands
-Project commands (build, lint, test .etc) are executed via the NX CLI. 
+
+Project commands (build, lint, test .etc) are executed via the NX CLI.
 
 **Global Install**
 
@@ -111,7 +148,8 @@ OR use yarn/npx to prefix any commands you run
 
 ##### Available Commands (Targets)
 
-The core library supports 
- - lint (ESLint)
- - test (Jest Unit Test Suite)
- - build (TSC Build)
+The core library supports
+
+- lint (ESLint)
+- test (Jest Unit Test Suite)
+- build (TSC Build)

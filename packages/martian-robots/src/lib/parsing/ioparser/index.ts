@@ -5,7 +5,7 @@ import { Robot } from '../../model/robot';
 import { Position } from '../../model/position';
 import { Orientation } from '../../model/orientation';
 
-type RobotInstructionPair = {
+export type RobotInstructionPair = {
   robot: Robot;
   instructions: Instruction[];
 };
@@ -32,6 +32,11 @@ export class IOParser {
   static parseInput(input: string): ParsedInput {
     const world = this._parseWorld(input);
     const robotsWithInstructions = this._parseRobotsWithInstructions(input, world);
+    robotsWithInstructions.forEach(({ robot }) => {
+      if (world) {
+        world.addRobot(robot);
+      }
+    });
     return { world, robotsWithInstructions };
   }
 
@@ -101,6 +106,7 @@ export class IOParser {
 
   private static _serialiseRobot(robot: Robot): string {
     const orientationKey = Object.entries(ORIENTATION_MAP).find(([key, value]) => value === robot.getOrientation())?.[0];
+
     return [robot.getPosition().x, robot.getPosition().y, orientationKey || "", robot.getIsLost() ? "LOST" : ""]
       .map(value => value.toString())
       .filter(value => !!value)
