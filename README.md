@@ -123,7 +123,6 @@ npm run cli
 
 Launches interactive CLI for you to provide a valid input as per the spec above.
 
-```bash
 ##### Start GUI
 
 ```bash
