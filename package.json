@@ -5,7 +5,8 @@
   "scripts": {
     "build": "npx nx run-many -t build",
     "test": "npx nx run-many -t test",
-    "cli": "node dist/packages/martian-robots-cli/main.js"
+    "cli": "node dist/packages/martian-robots-cli/main.js",
+    "gui": "npx nx serve martian-robots-gui"
   },
   "private": true,
   "dependencies": {
