@@ -2,15 +2,13 @@
   "name": "@rb-martian-robots/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
-  "private": true,
   "scripts": {
     "build": "npx nx run-many -t build",
     "test": "npx nx run-many -t test",
     "cli": "node dist/packages/martian-robots-cli/main.js"
   },
+  "private": true,
   "dependencies": {
-    "axios": "^1.0.0",
     "inquirer": "^8.2.5",
     "tslib": "^2.3.0"
   },
