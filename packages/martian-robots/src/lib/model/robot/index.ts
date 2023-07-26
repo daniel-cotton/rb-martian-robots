@@ -41,12 +41,20 @@ export class Robot {
       // Check if the potential position is within the world bounds
       const isValidPosition = this.world.isInWorld(potentialPosition);
 
+      const previousPosition = this.position;
+      const previousOrientation = this.orientation;
+
       // Update position and orientation
       this.position = potentialPosition;
       this.orientation = potentialOrientation;
           
       if (!isValidPosition) {
-        this.isLost = true;
+        if (this.world.isScentPresent(previousPosition)) {
+          this.position = previousPosition;
+          this.orientation = previousOrientation;
+        } else {
+          this.isLost = true;
+        }
       }
     } catch {
       // If error is thrown, position is invalid and
