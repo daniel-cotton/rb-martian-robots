@@ -106,6 +106,7 @@ export class IOParser {
 
   private static _serialiseRobot(robot: Robot): string {
     const orientationKey = Object.entries(ORIENTATION_MAP).find(([key, value]) => value === robot.getOrientation())?.[0];
+
     return [robot.getPosition().x, robot.getPosition().y, orientationKey || "", robot.getIsLost() ? "LOST" : ""]
       .map(value => value.toString())
       .filter(value => !!value)

@@ -40,12 +40,12 @@ export class Robot {
   
       // Check if the potential position is within the world bounds
       const isValidPosition = this.world.isInWorld(potentialPosition);
-                
-      if (isValidPosition) {
-        // Update position and orientation
-        this.position = potentialPosition;
-        this.orientation = potentialOrientation;
-      } else {
+
+      // Update position and orientation
+      this.position = potentialPosition;
+      this.orientation = potentialOrientation;
+          
+      if (!isValidPosition) {
         this.isLost = true;
       }
     } catch {
