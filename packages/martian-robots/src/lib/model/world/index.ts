@@ -1,5 +1,4 @@
 import { Robot } from '../robot';
-import { Scent } from '../scent';
 import { Position } from '../position';
 
 /**
@@ -26,7 +25,7 @@ export class World {
   maxPosition: Position = new Position({ x: 0, y: 0 });
 
   robots: Robot[] = [];
-  scents: Scent[] = [];
+  scents: Position[] = [];
 
   /**
    * Creates an instance of World
@@ -58,6 +57,19 @@ export class World {
   isInWorld({ x, y }: Position) {
     return x >= 0 && x <= this.maxPosition.x && y >= 0 && y <= this.maxPosition.y;
   }
+
+  /**
+   * Test if given coordinates have an 
+   * existing scent
+   * 
+   * @param {Position} xy - The x,y coordinate position to test
+   * 
+   * @returns {boolean} isScentPresent - Whether the coordinates have an existing scent
+   */
+  isScentPresent({ x, y }: Position) {
+    return this.getScents()
+      .some(scent => scent.x === x && scent.y === y);
+  }
   
   /**
    * Adds robot to world
@@ -83,14 +95,14 @@ export class World {
    * @param {Scent} scent - The scent to add to the world
    * 
    */
-  addScent(scent: Scent) {
+  addScent(scent: Position) {
     this.scents.push(scent);
   }
 
   /**
    * Returns the scents in the world
    * 
-   * @returns {Scent[]} - The scents in the world
+   * @returns {Position[]} - The scents in the world
    */
   getScents() {
     return this.scents;
