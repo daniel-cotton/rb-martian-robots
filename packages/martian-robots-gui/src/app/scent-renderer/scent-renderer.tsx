@@ -11,8 +11,8 @@ export interface ScentRendererProps {
 }
 
 const ScentImage = styled.image`
-  -webkit-filter: blur(20px);
-  filter: blur(20px);
+  -webkit-filter: blur(2px) invert(1);
+  filter: blur(2px) invert(1);
 `;
 
 export function ScentRenderer(props: ScentRendererProps) {

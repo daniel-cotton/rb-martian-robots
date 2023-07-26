@@ -35,12 +35,12 @@ export function WorldRenderer(props: WorldRendererProps) {
         />
       ))
     )}
+    
+    {props.world.getScents()
+      .map((position, index) => <ScentRenderer key={index} position={position} maxPosition={maxPosition} />)}
 
     {props.world.getRobots()
       .map((robot, index) => <RobotRenderer key={index} robot={robot} maxPosition={maxPosition} />)}
-
-    {props.world.getScents()
-      .map((position, index) => <ScentRenderer key={index} position={position} maxPosition={maxPosition} />)}
   </WorldSVG>);
 }
 
