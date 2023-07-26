@@ -32,18 +32,20 @@ export function App() {
     <StyledApp>
       <GlobalStyle />
       <Content>
-        <h1>Martian Robots</h1>
-        <IOSection>
-          <InputForm onSubmit={startSimulation}>
-            <h2>Input</h2>
-            <textarea id="instructions" value={instructions} onChange={(e) => setInstructions(e.target.value)} />
-            <button type="submit">Start</button>
-          </InputForm>
-          <div>
-            <h2>Output</h2>
-            <textarea disabled>{output}</textarea>
-          </div>
-        </IOSection>
+        <Card>
+          <h1>Martian Robots</h1>
+          <IOSection>
+            <InputForm onSubmit={startSimulation}>
+              <h2>Input</h2>
+              <textarea id="instructions" value={instructions} onChange={(e) => setInstructions(e.target.value)} />
+              <button type="submit">Start</button>
+            </InputForm>
+            <div>
+              <h2>Output</h2>
+              <textarea disabled>{output}</textarea>
+            </div>
+          </IOSection>
+        </Card>
         {world && <WorldRenderer world={world} />}
       </Content>
     </StyledApp>
@@ -59,7 +61,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; }>`
     width: 100vw;
     height: 100vh;
   }
-`
+`;
 
 const StyledApp = styled.div`
   background: url("${require('../assets/textures/mars-tileable-cc-by.png')}") repeat;
@@ -72,6 +74,8 @@ const Content = styled.div`
   max-width: 1100px;
   width: 90vw;
   margin: 0 auto;
+  padding: 2rem 0;
+  box-sizing: border-box;
   height: 100vh;
   color: #fff;
   h1 {
@@ -79,22 +83,39 @@ const Content = styled.div`
   }
 `;
 
-const IOSection = styled.section`
-  display: flex;
+const Card = styled.section`
   color: #000;
   background: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+`;
+
+const IOSection = styled.section`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   & > * {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  & > * > * {
+    display: block;
+    margin: 0.5rem 0;
   }
   & textarea {
     min-height: 150px;
-    min-width: 150px;
+    min-width: 200px;
   }
 `;
 
 const InputForm = styled.form`
-  & > * {
-    display: block;
+  button {
+    background: #000;
+    color: #fff;
+    border: 0;
+    padding: 0.5rem 2rem;
+    min-width: 200px;
+    border-radius: 0.5rem;
   }
 `;
