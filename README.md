@@ -1,5 +1,9 @@
 # RB - Martian Robots
 
+GUI Deployed at:
+
+https://martianrobots.daniel-cotton.co.uk/
+
 ## Context / Problem
 
 The surface of Mars can be modelled by a rectangular grid around which robots are able to
@@ -129,7 +133,8 @@ npm run gui
 Starts web server on port 4200
 
 http://localhost:4200
-```
+
+```md
 
 ### Packages
 
@@ -171,3 +176,4 @@ The core library supports
 - lint (ESLint)
 - test (Jest Unit Test Suite)
 - build (TSC Build)
+```

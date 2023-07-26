@@ -12,6 +12,8 @@ export interface WorldRendererProps {
 
 const WorldSVG = styled.svg`
   flex: 1;
+  min-height: 200px;
+  margin: 3rem auto;
 `;
 
 export function WorldRenderer(props: WorldRendererProps) {
