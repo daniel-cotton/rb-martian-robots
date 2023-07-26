@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@rb-martian-robots/martian-robots": [
-        "packages/martian-robots/src/index.ts"
+        "packages/martian-robots/src/index.ts",
+        "dist/packages/martian-robots/src/index.ts"
       ]
     }
   },

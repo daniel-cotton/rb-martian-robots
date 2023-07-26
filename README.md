@@ -63,9 +63,12 @@ FRRFLLFFRRFLL
 LLFFFLFLFL
 
 **Sample Output**
+
 1 1 E
 3 3 N LOST
-2 3 S
+2 3 S LOST
+
+NOTE: In the specification, the final row of sample output was missing the "LOST" designation, but having replicated the steps manually, I believe this should be present, and this is a bug in the spec.
 
 ## Project Structure
 
@@ -74,8 +77,7 @@ This project implements a solution to the above problem as a JavaScript (TypeScr
 **Project Contents**
 
 - packages/
-  - martian-robots/ (TypeScript library)
-    
+   - martian-robots/ (TypeScript library)
 
 ### Packages
 
@@ -91,7 +93,8 @@ As this is an NX monorepo, all dependencies are managed at the root.
 2. Install dependencies via npm `npm install`
 
 ##### Running NX/Project Commands
-Project commands (build, lint, test .etc) are executed via the NX CLI. 
+
+Project commands (build, lint, test .etc) are executed via the NX CLI.
 
 **Global Install**
 
@@ -111,7 +114,8 @@ OR use yarn/npx to prefix any commands you run
 
 ##### Available Commands (Targets)
 
-The core library supports 
- - lint (ESLint)
- - test (Jest Unit Test Suite)
- - build (TSC Build)
+The core library supports
+
+- lint (ESLint)
+- test (Jest Unit Test Suite)
+- build (TSC Build)

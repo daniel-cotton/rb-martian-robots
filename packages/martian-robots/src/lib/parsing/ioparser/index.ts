@@ -32,6 +32,11 @@ export class IOParser {
   static parseInput(input: string): ParsedInput {
     const world = this._parseWorld(input);
     const robotsWithInstructions = this._parseRobotsWithInstructions(input, world);
+    robotsWithInstructions.forEach(({ robot }) => {
+      if (world) {
+        world.addRobot(robot);
+      }
+    });
     return { world, robotsWithInstructions };
   }
 

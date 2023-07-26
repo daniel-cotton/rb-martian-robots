@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/martian-robots-cli/src",
   "projectType": "application",
+  "implicitDependencies": ["martian-robots"],
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",
@@ -11,8 +12,8 @@
       "options": {
         "platform": "node",
         "outputPath": "dist/packages/martian-robots-cli",
-        "format": ["cjs"],
-        "bundle": false,
+        "format": ["esm"],
+        "bundle": true,
         "main": "packages/martian-robots-cli/src/main.ts",
         "tsConfig": "packages/martian-robots-cli/tsconfig.app.json",
         "assets": ["packages/martian-robots-cli/src/assets"],
