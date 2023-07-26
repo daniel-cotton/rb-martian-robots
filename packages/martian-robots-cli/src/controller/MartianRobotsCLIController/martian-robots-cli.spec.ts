@@ -6,10 +6,10 @@ const sampleInput = `5 3
 RFRFRFRF
 
 3 2 N
-FRRFLLFFRRFLL`;
-// Final test for when 'scents' are implemented
-// 0 3 W
-// LLFFFLFLFL
+FRRFLLFFRRFLL
+
+0 3 W
+LLFFFLFLFL`;
 
 const outputSpy = jest.spyOn(console, "log");
 
@@ -22,8 +22,8 @@ describe('MartianRobotsCLI tests', () => {
   it('given valid input, should respond with expected robot positions', async () => {
 
     const expectedOutput = `1 1 E
-3 3 N LOST`;
-// 2 3 S`;
+3 3 N LOST
+2 3 S`;
 
     const cli = new MartianRobotsCLIController();
     await cli.launch();

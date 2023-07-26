@@ -23,7 +23,18 @@ export abstract class MartianRobotsController {
   }
 
   protected runInstruction(robot: Robot, instruction: Instruction): void {
+    // Note Current position
+    const lostBefore = robot.getIsLost();
+    const positionBefore = robot.getPosition();
+
+    // Try a move
     robot.followInstruction(instruction);
+    
+    // If we weren't lost, but we are now
+    // leave a scent.
+    if (!lostBefore && robot.getIsLost()) {
+      this.world?.addScent(positionBefore);
+    }
   };
 
 }
