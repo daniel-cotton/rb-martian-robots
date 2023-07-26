@@ -59,7 +59,8 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; }>`
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
 `;
 
@@ -76,7 +77,8 @@ const Content = styled.div`
   margin: 0 auto;
   padding: 2rem 0;
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
   color: #fff;
   h1 {
     text-align: center;
