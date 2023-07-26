@@ -42,6 +42,7 @@ export function RobotRenderer(props: RobotRendererProps) {
       y="0"
       style={{
         transform: `translateX(${props.robot.getPosition().x * 10 + 1}px) translateY(${(props.maxPosition.y - props.robot.getPosition().y) * 10 + 1}px) rotate(${getRotationForOrientation(props.robot.getOrientation())}deg)`,
+        transformOrigin: '5px 5px',
         opacity: props.robot.getIsLost() ? 0.5 : 1
       }}
     />
