@@ -42,7 +42,7 @@ export function App() {
             </InputForm>
             <div>
               <h2>Output</h2>
-              <textarea disabled>{output}</textarea>
+              <textarea disabled value={output}></textarea>
             </div>
           </IOSection>
         </Card>
