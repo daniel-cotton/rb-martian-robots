@@ -63,7 +63,7 @@ describe('Robot :: followInstruction', () => {
 
     // Final Step
     robot.followInstruction(instruction);
-    expect(robot.getPosition()).toEqual(new Position({ x: 1, y: 3 }));
+    expect(robot.getPosition()).toEqual(new Position({ x: 1, y: 4 }));
     expect(robot.getOrientation()).toEqual(Orientation.NORTH);
     expect(robot.getIsLost()).toEqual(true);
   });

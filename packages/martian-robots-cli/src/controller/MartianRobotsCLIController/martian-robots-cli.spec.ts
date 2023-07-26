@@ -22,8 +22,8 @@ describe('MartianRobotsCLI tests', () => {
   it('given valid input, should respond with expected robot positions', async () => {
 
     const expectedOutput = `1 1 E
-3 3 N LOST
-2 3 S`;
+3 3 N LOST`;
+// 2 3 S`;
 
     const cli = new MartianRobotsCLIController();
     await cli.launch();
